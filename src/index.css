@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 94%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 94%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 94%;
+    --primary: 348 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 94%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 348 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 348 80% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 348 60% 15%;
+    --input: 0 0% 15%;
+    --ring: 348 100% 50%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 348 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 348 30% 15%;
+    --sidebar-ring: 348 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', 'Inter', system-ui, sans-serif;
+  }
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: 'Orbitron', 'Inter', system-ui, sans-serif;
+  }
+  .font-jetbrains {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  .text-glow-red {
+    text-shadow: 0 0 30px rgba(255, 0, 64, 0.5), 0 0 60px rgba(255, 0, 64, 0.2);
+  }
+  .text-glow-red-sm {
+    text-shadow: 0 0 15px rgba(255, 0, 64, 0.4);
+  }
+  .border-glow-red {
+    box-shadow: 0 0 15px rgba(255, 0, 64, 0.15), inset 0 0 15px rgba(255, 0, 64, 0.05);
+  }
+  .border-glow-red-hover:hover {
+    box-shadow: 0 0 25px rgba(255, 0, 64, 0.3), inset 0 0 20px rgba(255, 0, 64, 0.1);
+  }
+  .glass-panel {
+    background: rgba(18, 18, 20, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 0, 64, 0.15);
+  }
+  .glass-panel-hover:hover {
+    background: rgba(28, 28, 32, 0.9);
+    border-color: rgba(255, 0, 64, 0.4);
+    box-shadow: 0 0 25px rgba(255, 0, 64, 0.15);
+  }
+  .neon-border {
+    border: 1px solid rgba(255, 0, 64, 0.3);
+  }
+  .neon-border-left {
+    border-left: 3px solid #ff0040;
+  }
+  .gradient-fade-bottom {
+    background: linear-gradient(to bottom, transparent 0%, #0a0a0a 100%);
+  }
+  .grid-bg {
+    background-image: 
+      linear-gradient(rgba(255, 0, 64, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 0, 64, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 0, 64, 0.3);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 0, 64, 0.5);
+  }
+}
+
+/* Add Orbitron via @font-face for better loading */
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6xpmIyXjU1pg.woff2') format('woff2');
+}
+
+/* Animation keyframes */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 0, 64, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(255, 0, 64, 0.4); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 0, 64, 0.3);
+  color: #f0f0f0;
+}
